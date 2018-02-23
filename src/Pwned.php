@@ -4,6 +4,7 @@ namespace Valorin\Pwned;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Lang;
 
 class Pwned implements Rule
 {
@@ -36,7 +37,7 @@ class Pwned implements Rule
 
     public function message()
     {
-        return trans()->has('validation.pwned') ? trans('validation.pwned') : 'Your password has been pwned!';
+        return Lang::has('validation.pwned') ? Lang::get('validation.pwned') : 'Your password has been pwned!';
     }
 
     private function hashAndSplit($value)
