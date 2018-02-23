@@ -1,18 +1,19 @@
 # Pwned Passwords Validator for Laravel
 
-This validator checks the user's submitted password (in a registration or password change form) with the awesome 
+The Pwned Password validator checks the user's submitted password (in a registration or password change form) with the awesome 
 [HIBP Pwned Passwords](https://haveibeenpwned.com/Passwords) service to see if it is a known _pwned password_.
 If the password has been pwned, it will fail validation, preventing the user from using that password in your app.
 
 > Pwned Passwords are half a billion real world passwords previously exposed in data breaches. This exposure makes them unsuitable for ongoing use as they're at much greater risk of being used to take over other accounts.
 
-This validator uses the _ranged search_ feature of the Pwned Passwords API, which uses [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity)
+This uses the _ranged search_ feature of the Pwned Passwords API, which uses [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity)
 to significantly reduce the risk of any information leakage when accessing the API.
 For most systems this should be more than secure enough, although you should definitely decide for yourself if it's suitable for your app. 
 
 Please make sure to check out the blog post by Troy Hunt, where he explains how the service works:
-<https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/>. He worked with Cloudflare on this service, 
-and they have an in depth technical analysis on how it works and the security implication: 
+<https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/>.  
+
+Troy worked with Cloudflare on this service, and they have an in depth technical analysis on how it works and the security implications: 
 <https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/>.
 
 Ultimately, it's up to you to decide if it's safe for your app or not.
@@ -80,4 +81,4 @@ Q: Do you do any caching?
 A: Yep! Each prefix query is cached for a week, to prevent constant API requests if the same prefix is checked multiple times. 
 
 Q: Where are the tests?  
-A: To properly test this code, we need to hit the web service. I don't want to automate that, to avoid abusing this fantastic service. Instead, since it is an incredibly simplistic validator, I've opted to manually test it for now.
+A: To properly test this code, we need to hit the web service. I don't want to automate that, to avoid abusing this fantastic service. Instead, since it is an incredibly simplistic validator, I've opted to manually test it for now. 
