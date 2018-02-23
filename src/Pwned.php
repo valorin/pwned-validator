@@ -37,7 +37,7 @@ class Pwned implements Rule
 
     public function message()
     {
-        return Lang::has('validation.pwned') ? Lang::get('validation.pwned') : 'Your password has been pwned!';
+        return Lang::get('validation.pwned');
     }
 
     private function hashAndSplit($value)
