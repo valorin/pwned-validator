@@ -1,0 +1,28 @@
+{
+    "name": "valorin/pwned-validator",
+    "description": "Super simple Laravel Validator for checking password via the Pwned Passwords service of Have I Been Pwned",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stephen Rees-Carter",
+            "email": "stephen@rees-carter.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Valorin\\Pwned\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1.3",
+        "illuminate/support": "~5.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Valorin\\Pwned\\ServiceProvider"
+            ]
+        }
+    }
+}
