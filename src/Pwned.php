@@ -52,7 +52,10 @@ class Pwned implements Rule
     {
         // Cache results for a week, to avoid constant API calls for identical prefixes
         return Cache::remember('pwned:'.$prefix, 10080, function () use ($prefix) {
-            $results = file_get_contents('https://api.pwnedpasswords.com/range/'.$prefix);
+            $curl = curl_init('https://api.pwnedpasswords.com/range/'.$prefix);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $results = curl_exec($curl);
+            curl_close($curl);
 
             return (new Collection(explode("\n", $results)))
                 ->mapWithKeys(function ($value) {

@@ -16,6 +16,7 @@
     },
     "require": {
         "php": ">=7.1.3",
+        "ext-curl": "*",
         "illuminate/support": "~5.5"
     },
     "extra": {
