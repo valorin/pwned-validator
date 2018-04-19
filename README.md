@@ -68,6 +68,10 @@ you'd be better with something a lot longer:
  
 > You password is insufficiently secure as it has been found in known password breaches, please chose a new one. [Need help?](#)
 
+Thanks to [kanalumaddela](https://github.com/valorin/pwned-validator/pull/2), you can use `:min` in the message to indicate the minimum number of times found set on the validator.
+
+> Your password is insufficiently secure as it has been found at least :min times in known password breaches, please chose a new one.
+
 ## Limiting by the number of times the password was pwned
 
 You can also limit rejected passwords to those that have been pwned a minimum number of times.
