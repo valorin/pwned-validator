@@ -14,6 +14,10 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         Validator::extend('pwned', Pwned::class);
+
+        Validator::replacer('pwned', function ($message, $attribute, $rule, $parameters) {
+            return str_replace(':min', array_shift($parameters) ?? 1, $message);
+        });
     }
 
     /**
