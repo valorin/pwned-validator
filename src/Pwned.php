@@ -60,8 +60,11 @@ class Pwned implements Rule
 
             return (new Collection(explode("\n", $results)))
                 ->mapWithKeys(function ($value) {
-                    list($suffix, $count) = explode(':', trim($value));
-                    return [$suffix => $count];
+                    $pair = explode(':', trim($value), 2);
+
+                    return count($pair) === 2 && is_numeric($pair[1])
+                        ? [$pair[0] => $pair[1]]
+                        : [];
                 });
         });
     }
