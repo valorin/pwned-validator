@@ -58,7 +58,9 @@ class Pwned implements Rule
             $results = curl_exec($curl);
             curl_close($curl);
 
-            return (new Collection(explode("\n", $results)))
+            $hashes = explode("\n", trim($results));
+
+            return (new Collection($hashes))
                 ->mapWithKeys(function ($value) {
                     $pair = explode(':', trim($value), 2);
 
