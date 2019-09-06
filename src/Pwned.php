@@ -2,6 +2,7 @@
 namespace Valorin\Pwned;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Lang;
@@ -52,7 +53,7 @@ class Pwned implements Rule
     private function query($prefix)
     {
         // Cache results for a week, to avoid constant API calls for identical prefixes
-        return Cache::remember('pwned:'.$prefix, now()->addWeek(), function () use ($prefix) {
+        return Cache::remember('pwned:'.$prefix, Carbon::now()->addWeek(), function () use ($prefix) {
             $curl = curl_init('https://api.pwnedpasswords.com/range/'.$prefix);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             $results = curl_exec($curl);
