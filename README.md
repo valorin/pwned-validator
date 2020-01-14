@@ -28,6 +28,14 @@ composer require valorin/pwned-validator
 
 Laravel's service provider discovery will automatically configure the Pwned service provider for you.
 
+Add the validation message to your validation lang file:
+
+For each language add a validation message to `validation.php` like below
+
+```
+'pwned' => 'The :attribute is not secure enough',
+```
+
 ## Using the `pwned` validator
 
 After installation, the `pwned` validator will be available for use directly in your validation rules.
