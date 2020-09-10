@@ -56,6 +56,8 @@ class Pwned implements Rule
         return Cache::remember('pwned:'.$prefix, Carbon::now()->addWeek(), function () use ($prefix) {
             $curl = curl_init('https://api.pwnedpasswords.com/range/'.$prefix);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            //Set Add-Padding to true to pad queries. (See: https://haveibeenpwned.com/API/v3#PwnedPasswordsPadding)
+            curl_setopt($curl, CURLOPT_HEADER, Add-Padding: false);
             $results = curl_exec($curl);
             curl_close($curl);
 
