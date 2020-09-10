@@ -57,7 +57,7 @@ class Pwned implements Rule
             $curl = curl_init('https://api.pwnedpasswords.com/range/'.$prefix);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             //Set Add-Padding to true to pad queries. (See: https://haveibeenpwned.com/API/v3#PwnedPasswordsPadding)
-            curl_setopt($curl, CURLOPT_HEADER, Add-Padding: false);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, ['Add-Padding: true']);
             $results = curl_exec($curl);
             curl_close($curl);
 
