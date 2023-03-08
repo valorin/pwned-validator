@@ -1,5 +1,9 @@
 # Pwned Passwords Validator for Laravel
 
+**Laravel includes an official Pwned Passwords validator via the `Password::uncompromised()` validation rule, so I recommend checking that out instead: https://laravel.com/docs/10.x/validation#validating-passwords**
+
+
+
 The Pwned Password validator checks the user's submitted password (in a registration or password change form) with the awesome 
 [HIBP Pwned Passwords](https://haveibeenpwned.com/Passwords) service to see if it is a known _pwned password_.
 If the password has been pwned, it will fail validation, preventing the user from using that password in your app.
